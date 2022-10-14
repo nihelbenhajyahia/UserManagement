@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "f3d8f98c-a7f0-4a7f-9d3b-c24c2ebd16fe",
+		"name": "user management Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17159122"
+	},
+	"item": [
+		{
+			"name": "create user Api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"nbhy\",\r\n    \"birthdate\":\"2021-09-13\",\r\n    \"country\":\"french\",\r\n    \"phone\":\"0600000000\",\r\n    \"gender\":\"female\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "select all users Api",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "select user by id Api",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
