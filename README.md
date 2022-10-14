@@ -10,7 +10,7 @@ Project user management allows to create a user on database and check all detail
 * launch this commandes:   
    1- update maven project  
    2- mvn clean install   
-   3- run as spring boot application   
+   3- open the main application file (UserManagementApplication.java), and run it as Java Application.  
 tomcat default port is 8080  
 the application is then up on localhost:8080  
 ### Api test on postman 
