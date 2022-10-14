@@ -13,13 +13,14 @@ Project user management allows to create a user on database and view all détail
    3- run as spring boot application   
 tomcat default port is 8080  
 the application is then up on localhost:8080  
-### Api test on postman  
-1- url to create a user:
+### Api test on postman 
+user management Api collection contains:
+1- create user Api: url to create a user:
    localhost:8080/user/create  
    you need a request body of type Json  
-2- url to display all user details:
+2- select all users Api: url to display all user details:
    localhost:8080/user/all  
-3- url to display detail of user who had id passed on path variable:
+3- select user by id Api: url to display detail of user who had id passed on path variable:
    localhost:8080/user/{id}
 ### Api test on Swagger 
 url Swagger: http://localhost:8080/swagger-ui/#/user-controller
