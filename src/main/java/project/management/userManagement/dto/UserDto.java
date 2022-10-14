@@ -6,6 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import project.management.userManagement.validator.UserCountryConstraint;
+import project.management.userManagement.validator.AdultConstraint;
 
 /**
  * Class Dto for entity user.
@@ -15,7 +16,7 @@ public class UserDto {
 	@NotEmpty
     private String name;
 	
-	@NotNull
+	@AdultConstraint
 	private Date birthdate;
 	
 	@UserCountryConstraint
@@ -65,7 +66,7 @@ public class UserDto {
 		this.gender = gender;
 	}
 
-	public UserDto(@NotEmpty String name, @NotNull Date birthdate, @NotEmpty String country, String phone,
+	public UserDto(String name, Date birthdate, String country, String phone,
 			String gender) {
 		super();
 		this.name = name;

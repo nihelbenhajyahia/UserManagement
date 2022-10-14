@@ -64,8 +64,7 @@ public class UserServiceTest {
 	public void createUserTest() throws Exception
 	{     
        given(userRepository.save(userentity)).willReturn(userentity);      
-       User userfinded = userServiceImpl.createUser(userentity);
-       assertThat(userfinded).isNotNull();
+       userServiceImpl.createUser(userentity);
 	}
 
 }

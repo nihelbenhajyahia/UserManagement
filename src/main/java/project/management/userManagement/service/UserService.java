@@ -9,7 +9,7 @@ import project.management.userManagement.entity.User;
  */
 public interface UserService {
 	
-	public User createUser(User user);
+	public void createUser(User user);
 	public List<User> detailsUsers();
 	public User detailsUserById(int id);
 }

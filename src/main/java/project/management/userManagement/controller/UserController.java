@@ -38,10 +38,10 @@ public class UserController {
      */
 	@ApiLog(uri = "/user/create")
 	@PostMapping(value = "/create")
-	public ResponseEntity<User> createUser(@RequestBody @Valid UserDto userDto) {
+	public ResponseEntity createUser(@RequestBody @Valid UserDto userDto) {
 		User user = new User(userDto.getName(),userDto.getBirthdate(),userDto.getCountry(),userDto.getPhone(),userDto.getGender());
-		user = userServiceImpl.createUser(user);
-		return new ResponseEntity<>(user, HttpStatus.OK);
+		userServiceImpl.createUser(user);
+		return new ResponseEntity(HttpStatus.OK);
 	}
 	
 	/**

@@ -31,9 +31,8 @@ public class UserServiceImpl implements UserService{
      * @return user
      */
 	@Override
-	public User createUser(User user) {
-		User usera = userRepository.save(user);
-		return usera;
+	public void createUser(User user) {
+	   userRepository.save(user);
 	}
 
 	/**
@@ -55,10 +54,8 @@ public class UserServiceImpl implements UserService{
      */
 	@Override
 	public User detailsUserById(int id) {
-		Optional<User> usera = userRepository.findById(id);
-		if(usera.isPresent())
-			return usera.get();
-		else return null;
+		Optional<User> user = userRepository.findById(id);
+		return user.isPresent() ? user.get() : null;
 	}
 
 }

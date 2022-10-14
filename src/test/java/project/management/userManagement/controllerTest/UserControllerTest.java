@@ -42,12 +42,25 @@ public class UserControllerTest {
     	
        Date birth = new SimpleDateFormat("yyyy-MM-dd").parse("1994-09-13"); 
        UserDto user = new UserDto("nihel",birth,"french", "125478","female");
-       User userentity = new User("nihel",birth,"french", "125478","female"); 
-       given(userServiceImpl.createUser(userentity)).willReturn(userentity);
         mvc.perform(post("/user/create")
             .contentType(MediaType.APPLICATION_JSON)
             .content(toJson(user)))
             .andExpect(status().isOk());
+        
+        UserDto userInvalidCountry = new UserDto("nihel",birth,"tunisia", "125478","female");
+        mvc.perform(post("/user/create")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(toJson(userInvalidCountry)))
+            .andExpect(status().isBadRequest());
+        
+        Date invalidbirth = new SimpleDateFormat("yyyy-MM-dd").parse("2021-09-13"); 
+        UserDto userInvalidBirthdate = new UserDto("nihel",invalidbirth,"french", "125478","female");
+         mvc.perform(post("/user/create")
+             .contentType(MediaType.APPLICATION_JSON)
+             .content(toJson(userInvalidBirthdate)))
+             .andExpect(status().isBadRequest());
+        
+        
     }
     
     @Test
