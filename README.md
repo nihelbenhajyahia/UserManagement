@@ -1,4 +1,4 @@
-Project user management allows to create a user on database and view all details of users
+Project user management allows to create a user on database and check all details of users
 ### Version:
     SpringBoot : 2.7.4  
     java 8+
