@@ -75,6 +75,10 @@ public class UserDto {
 		this.phone = phone;
 		this.gender = gender;
 	}
+
+	public UserDto() {
+		super();
+	}
 	
 	
 	

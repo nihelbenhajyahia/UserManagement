@@ -1,9 +1,12 @@
 package project.management.userManagement.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +32,8 @@ public class UserController {
 
 	@Autowired
 	UserServiceImpl userServiceImpl;
+	
+	ModelMapper modelMapper = new ModelMapper();
 
 	/**
      * Method createUser :create a user when the api /user/create is called.
@@ -39,7 +44,9 @@ public class UserController {
 	@ApiLog(uri = "/user/create")
 	@PostMapping(value = "/create")
 	public ResponseEntity createUser(@RequestBody @Valid UserDto userDto) {
-		User user = new User(userDto.getName(),userDto.getBirthdate(),userDto.getCountry(),userDto.getPhone(),userDto.getGender());
+		User user = new User();
+		modelMapper.map(userDto,user);
+		//User user = new User(userDto.getName(),userDto.getBirthdate(),userDto.getCountry(),userDto.getPhone(),userDto.getGender());
 		userServiceImpl.createUser(user);
 		return new ResponseEntity(HttpStatus.OK);
 	}
@@ -55,7 +62,7 @@ public class UserController {
 		List<User> userList = userServiceImpl.detailsUsers();
 		return new ResponseEntity<>(userList, HttpStatus.OK);
 	}
-	
+
 	/**
      * Method getUserById :return user who have id passed on param when the api /user/allte is called.
      *
