@@ -14,7 +14,7 @@ Project user management allows to create a user on database and view all détail
 tomcat default port is 8080  
 the application is then up on localhost:8080  
 ### Api test on postman 
-user management Api collection contains:
+user management Api collection contains:  
 1- create user Api: url to create a user:
    localhost:8080/user/create  
    you need a request body of type Json  
